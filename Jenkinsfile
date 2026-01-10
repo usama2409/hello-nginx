@@ -9,11 +9,11 @@ pipeline {
             }
         }
 
-        stage('Deploy to NGINX') {
+        stage('Deploy to Apache') {
             steps {
                 sh '''
-                sudo cp index.html /usr/share/nginx/html/index.html
-                sudo systemctl reload nginx
+                sudo cp index.html /var/www/html/index.html
+                sudo systemctl reload httpd
                 '''
             }
         }
